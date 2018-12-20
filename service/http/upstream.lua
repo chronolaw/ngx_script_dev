@@ -7,7 +7,13 @@
 local backend_addr = "127.0.0.1"
 local backend_port = 707
 
-local args = ngx.var.args or ""
+local args = ngx.var.args
+
+-- check $args
+if not args then
+    ngx.say("needs $args. use curl 127.1/upstream?xxx")
+    return
+end
 
 local sock = ngx.socket.tcp()
 
