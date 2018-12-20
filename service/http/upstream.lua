@@ -3,13 +3,11 @@
 -- $backend_addr, $backend_port
 -- we also could use ngx_http_lua_upstream
 --local backend_addr = ngx.var.backend_addr or "127.0.0.1"
---local backend_port = tonumber(ngx.var.backend_port or 2017)
+--local backend_port = tonumber(ngx.var.backend_port or 707)
 local backend_addr = "127.0.0.1"
-local backend_port = 2017
+local backend_port = 707
 
-local args = ngx.var.args
-args = args and #args >= 4 and
-       string.sub(args, 1, 4) or "xxxx"
+local args = ngx.var.args or ""
 
 local sock = ngx.socket.tcp()
 
@@ -20,7 +18,7 @@ if not ok then
     return
 end
 
-local bytes, err = sock:send(args, '\n')
+local bytes, err = sock:send(args .. '\n')
 
 if err then
     ngx.say("failed to send : ", err)

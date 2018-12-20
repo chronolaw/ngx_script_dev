@@ -6,7 +6,7 @@ local uri = '/deny'
 
 local res = ngx.location.capture(
                 uri,
-                {args=ngx.req.args})
+                {args=ngx.var.args})
 
 
 ngx.log(ngx.ERR, "subreqeust body is ", res.body)
