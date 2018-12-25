@@ -12,3 +12,14 @@ function test_log(r)
     return "hello JavaScript";
 }
 
+// test var
+function test_var(r)
+{
+    var v = r.variables.nginx_version;
+    var addr = r.variables['remote_addr'];
+
+    r.error("var is " + v + ", " + addr);
+
+    return "hello variables";
+}
+
