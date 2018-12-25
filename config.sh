@@ -5,6 +5,7 @@ src_path=${HOME}/github
 
 prefix="--prefix=/opt/nginx_script"
 build_date="${USER} build at `date '+%Y.%m.%d %H:%M'`"
+cc_opt="-g -O0"
 
 modules="--with-stream
          --with-stream_ssl_module
@@ -42,6 +43,7 @@ cd $ngx_path
 
 ./configure     \
     --build="${build_date}" \
+    --with-cc-opt="${cc_opt}"   \
     --with-ld-opt="-Wl,-rpath,${LUAJIT_LIB}"   \
     ${opts}
 
