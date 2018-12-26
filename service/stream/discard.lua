@@ -19,6 +19,6 @@ while true do
     count = count + 1
 
     if count % 10 == 0 then
-        ngx.log(ngx.INFO, " received ", count , " bytes")
+        ngx.log(ngx.ERR, "received ", count , " bytes")
     end
 end

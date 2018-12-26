@@ -1,4 +1,4 @@
-// Copyright (C) 2017 by chrono
+// Copyright (C) 2018 by chrono
 
 // a array
 var strs = ['hello', 'nginx', 'nginScript'];
@@ -6,7 +6,7 @@ var strs = ['hello', 'nginx', 'nginScript'];
 // a var set
 function hello(s)
 {
-    s.log("stream nginScript");
-    return "stream nginScript";
+    s.log("stream JavaScript");
+    return "stream JavaScript";
 }
 
