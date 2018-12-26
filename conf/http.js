@@ -66,3 +66,21 @@ function subrequest(r)
                 "hello " + sr.responseBody);
         });
 }
+
+// a/b testing
+function split_clients(r)
+{
+    var now = new Date();
+    if (now.getHours() < 16) {
+        //r.error("split to a in " + now.getHours());
+        return "upstream_a";
+    }
+
+    var ip_nums = r.remoteAddress.split('.');
+
+    if (ip_nums[3] <= 70) {
+        return "upstream_b";
+    }
+
+    return "upstream_a";
+}
